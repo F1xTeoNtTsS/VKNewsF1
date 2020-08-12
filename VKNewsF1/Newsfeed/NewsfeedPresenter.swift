@@ -79,6 +79,6 @@ class NewsfeedPresenter: NewsfeedPresentationLogic {
         }), let firstPhoto = photos.first else {
             return nil
         }
-        return FeedViewModel.FeedCellPhotoAttachment.init(photoUrlString: firstPhoto.srcBIG, wight: firstPhoto.width, height: firstPhoto.height)
+        return FeedViewModel.FeedCellPhotoAttachment.init(photoUrlString: firstPhoto.srcBIG, width: firstPhoto.width, height: firstPhoto.height)
     }
 }

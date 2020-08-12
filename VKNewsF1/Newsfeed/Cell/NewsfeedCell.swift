@@ -32,7 +32,7 @@ protocol FeedCellSizes {
 
 protocol FeedCellPhotoAttachmentViewModel {
     var photoUrlString: String? { get }
-    var wight: Int { get }
+    var width: Int { get }
     var height: Int { get }
 }
 
@@ -53,6 +53,10 @@ class NewsfeedCell: UITableViewCell {
     @IBOutlet weak var viewsLabel: UILabel!
     @IBOutlet weak var bottomView: UIView!
     
+    override func prepareForReuse() {
+        iconImageView.set(imageUrl: nil)
+        postImageView.set(imageUrl: nil)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
