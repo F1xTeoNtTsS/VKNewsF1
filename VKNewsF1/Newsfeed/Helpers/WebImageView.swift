@@ -10,17 +10,14 @@ import UIKit
 
 class WebImageView: UIImageView {
     
-    func set(imageUrl: String) {
-        guard let url = URL(string: imageUrl) else { return }
+    func set(imageUrl: String?) {
+        guard let imageUrl = imageUrl, let url = URL(string: imageUrl) else { return }
         
         if let cachedResponse = URLCache.shared.cachedResponse(for: URLRequest(url: url)) {
             
             self.image = UIImage(data: cachedResponse.data)
-            print("from cache")
             return
         }
-        
-        print("from internet")
         
         let dataTask = URLSession.shared.dataTask(with: url) { [weak self] (data, response, error ) in
             
